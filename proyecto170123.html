@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=  , initial-scale=1.0">
+    <title>Geoportal Delitos-Instituciones Bucaramanga</title>
+    <!--Hoy, martes 17 de Enero de 2023 comenzamos con el v'ideo del Day 13
+    del tutorial de geoprotales. En este, el instructor nos explica que en vez
+    de trabajr con CSS, comenzaremos a usar la librer'ia de javascript LEAFLET.
+    Esta es una librer'ia orientada al desarrollo GIS-FRONTEND, especial para
+    datos espaciales. Algo curioso es que dentro de su documentaci'on parece ser
+    que viene con sus propios estilos de css. Esta la puedes encontrar en>
+https://leafletjs.com/examples/quick-start/-->
+
+<!--Elemento CSS de LEAFLEY-->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin=""/> 
+    <!--Estilos CSS de leaflet, tomado de la documentaci'on-->
+    <!--<link rel="stylesheet" href="proyecto170123">-->
+
+<!--Estilo inline para el elemento DIV, en donde irá el mapa-->
+<style type="text/css">
+    #map{
+        height: 80vh;/* A height thats going to take 80% of the screen*/
+    /*Make sure the map container has a defined height,
+     for example by setting it in CSS: */
+    }
+</style>
+<!--OJO: EL MAPA SÓLO SE PUEDE VISUALIZAR SI SE LE ASIGNA UNA ALTURA
+AL ELEMENTO 'map', Y ESTO UNICA Y EXCLUSIVAMENTE S EPUEDE HACER CON UN
+CSS INTERNO, ES DECIR, QUE SI HACES UN CSS EXTERNO NO TE VA A DEJAR SACARLO-->
+
+</head>
+
+
+
+
+<body>
+    
+    <!--Creación del elemento div-->
+    <div id="map"></div> <!--Aqu'i es donde ir'a nuestro mapa. En el tutorial
+        colocan el estilo dentro del head(inline CSS) pero a mi no me gusta,
+    por eso lo dej'e en un archivo externo del mismo nombre del html-->
+    <!--Creación de element div adicional apra coordenadas-->
+    <div id="coordinate"></div>
+
+    
+<!-- Código Javascript de Leaflet; Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+    crossorigin=""></script> 
+<!--C'odigo JS de la documentaci'on de leaflet-->
+<!--Recuerda que el script(javascript)siempre va en la parte de abajo del
+body-->
+    <!--Código Javacript de Jquery.-->
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+
+<!--Ahora, deberemos crear otro elemento script para las siguientes funcio
+nalidades-->
+    <script type="text/javascript">
+
+//Inicialización del mapa
+var map = L.map('map').setView([7.137715182515009, -73.12034917965892], 13);
+/* Qu'e significa esta sentencia?
+    1. Accede a la librer'ia LEAFLET
+    2. Utiliza el m'etodo map, para acceder al elemento map
+    3. Inicializa una vista de entrada con las coordenadas especificadas
+        de latitud y longitud (punto Bucaramanga)
+    4. Con una vista al 13%??? Tengo que consultar  
+    5. Almacena todo esto en la variable map. Hasta aquí has hecho un proceso llamado INICIALIZACIÓN DEL MAPA.
+    Sin embargo, sólo con esto no vas a poer visualizar nada. Necesitas el código del MAPA BASE
+    */
+
+
+//Adición de BASEMAP
+var OpenStreetMap_Mapnik = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+maxZoom: 19,
+attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+    /*
+    6. NOTA: Cuando no te cargue el mapa base, peuees accededr a este enlace:
+    http://leaflet-extras.github.io/leaflet-providers/preview/index.html.
+    
+    Lo que hechos hecho en estas últimas líneas es sólo agregar el mapa base, en este
+    caso de Open Street Maps*/
+
+//Coordinates on mousemove
+map.on("mousemove", function(e){
+    $("#coordinate").html(`Lat:${e.latlng.lat.toFixed(2)} , Lng : ${e.latlng.lng}`)
+});
+
+//Add scale to map
+L.control.scale({position: "bottomleft"}).addTo(map)
+
+//Change default position of zoom control
+map.zoomControl.setPosition("topright")//Barrita para hacer zoom
+
+//Add arker to a determined position in your map
+var marker = L.marker([7.131149065006559, -73.12498949967019]).addTo(map);
+    
+
+
+
+    </script>
+</body>
+</html>

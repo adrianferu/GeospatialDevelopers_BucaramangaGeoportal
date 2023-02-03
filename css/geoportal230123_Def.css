@@ -1,0 +1,14 @@
+#mapBuc{
+    height: 90vh;/* A height thats going to take 80% of the screen*/
+/*Make sure the map container has a defined height,
+ for example by setting it in CSS: */
+}
+
+#coordinate {
+    position: absolute;
+    left:40%;
+    background: #fff;/* Las coordenadas se visualizan en la aprte de abajo, al centro*/
+    z-index: 99999;
+    height:  30px; /*Aumento la distancia desde el margen inferior */
+    bottom:0;
+}

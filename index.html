@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geoportal  Bucaramanga -Geospatial Developers/Geomatec</title>
+    <!--Elemento CSS de LEAFLEY-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" 
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin=""/>
+    <!--Elemento propio de nosotros, de CSS-->
+    <link type="text/css" rel="stylesheet" href="css/geoportal230123_Def.css">
+
+
+    
+</head>
+<body>
+
+    <div id="mapBuc">
+        <!--Creamos un DivINTERNO para manipular la visualizacion de coordenadas. Editado en el js-->
+        <div id="coordinate"> 
+
+        </div>
+
+    </div>    
+
+
+    <!-- Código Javascript de Leaflet; Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+    crossorigin="">
+    </script> 
+    <!--Código Javacript de Jquery.-->
+    <script src="https://code.jquery.com/jquery-3.6.3.js"
+     integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous">
+    </script>
+    <!--Elemento Script de git hub: leaflet Browser Print:Day 14-->
+    <script type="text/javascript" src="js/leaflet.browser.print.js">
+    </script>
+    <!--Elemento(S) Script para las capas en formato JS que se agregarán a la app-->
+    <script type="text/javascript" src="data/capacidadInstalada.js"> </script>
+    <script type="text/javascript" src="data/delitosBucaramanga.js"> </script>
+    <script type="text/javascript" src="data/departamentosColombia.js"> </script>
+    <script type="text/javascript" src="data/mgnUrbBucaramanga.js"> </script>
+    <!--Elemento Script de turf.js: Una nueva librería para análisis-->
+    <script src='https://unpkg.com/@turf/turf@6/turf.min.js'></script>
+    <!--Elemento Script de para inicializar código en Javascript, propio del código-->
+    <script type="text/javascript" src="js/geoportal230123_Def.js">
+        
+
+
+        
+
+
+    </script>
+
+    
+
+    
+</body>
+</html>
